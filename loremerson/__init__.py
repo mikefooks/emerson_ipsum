@@ -3,11 +3,13 @@ from random import shuffle
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
-from loremerson.sentence_gen import SentenceGen
+from loremerson.generators import StringGen
 
-# Instantiate the sentence generator.
 data_path = os.environ['LOREMERSON_DATA_PATH']
-sent_gen = SentenceGen(data_path)
+# Instantiate the sentence and heading generators.
+
+sentence_gen = StringGen(os.path.join(data_path, "all_gentext.dat"))
+heading_gen = StringGen(os.path.join(data_path, "headings.dat"))
 
 # Initialize the application.
 application = Flask(__name__)
@@ -24,6 +26,9 @@ parser.add_argument('sentences',
 parser.add_argument('format',
                     type=str,
                     help='output format: one of json, html, text')
+parser.add_argument('headings',
+                    type=int,
+                    help='number of headings')
 
 # Define the resource.
 class EmersonGuest(Resource):
