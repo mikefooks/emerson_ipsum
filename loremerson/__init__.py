@@ -1,13 +1,14 @@
 import os
-from random import shuffle
+
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
 from loremerson.generators import StringGen
 
-data_path = os.environ['LOREMERSON_DATA_PATH']
-# Instantiate the sentence and heading generators.
 
+data_path = os.environ['LOREMERSON_DATA_PATH']
+
+# Instantiate the sentence and heading generators.
 sentence_gen = StringGen(os.path.join(data_path, "all_gentext.dat"))
 heading_gen = StringGen(os.path.join(data_path, "headings.dat"))
 
