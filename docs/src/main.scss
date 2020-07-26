@@ -1,0 +1,65 @@
+$background: #eee;
+$text-color: #222;
+$accent: #dd4124;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $background;
+    font-family: "Average", serif;
+}
+
+h1 {
+    color: $background;
+    margin-left: 32px;
+}
+
+h2, h3, p, pre {
+    color: $text-color;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 540px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: #111;
+}
+
+img#waldo {
+    max-width: 320px;
+}
+
+section {
+    padding: 0 32px;
+}
+
+.intro {
+    
+}
+
+.interactive {
+    
+}
+
+.api-doc {
+    
+}
+
+footer {
+    
+}
