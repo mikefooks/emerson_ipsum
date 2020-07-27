@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-family: "Average", serif;
+}
+
+h1 {
+  color: #eee;
+  margin-left: 32px;
+}
+
+h2, h3, p, pre {
+  color: #222;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 540px) {
+  .container {
+    max-width: 800px;
+  }
+}
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: #111;
+}
+
+img#waldo {
+  max-width: 320px;
+}
+
+section {
+  padding: 0 32px;
+}
+
+/*# sourceMappingURL=main.css.map */

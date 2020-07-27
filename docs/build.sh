@@ -7,5 +7,5 @@ else
 fi
 
 cp src/index.html dist/index.html
-cp src/waldo.jpg dist/waldo.jpg
+cp src/waldoheader.jpg dist/waldoheader.jpg
 sass src/main.scss dist/main.css
