@@ -6,10 +6,10 @@ from flask_restful import Resource, Api, reqparse
 from loremerson.generators import StringGen
 
 
-data_path = os.environ['LOREMERSON_DATA_PATH']
+data_path = os.environ["EMERSON_DATA_PATH"]
 
 # Instantiate the sentence and heading generators.
-sentence_gen = StringGen(os.path.join(data_path, "all_gentext.dat"))
+sentence_gen = StringGen(os.path.join(data_path, "sentences.dat"))
 heading_gen = StringGen(os.path.join(data_path, "headings.dat"))
 
 # Initialize the application.
@@ -39,7 +39,7 @@ class EmersonGuest(Resource):
         sentences = args['sentences'] or 4
         format = args['format'] or 'json'
 
-        paragraphs = [ sent_gen(count=sentences)
+        paragraphs = [ sentence_gen(count=sentences)
                        for _ in range(paras) ]
 
         return paragraphs
