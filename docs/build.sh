@@ -8,4 +8,4 @@ fi
 
 cp src/index.html dist/index.html
 cp src/waldoheader.jpg dist/waldoheader.jpg
-sass src/main.scss dist/main.css
+sass --no-source-map src/emerson-styles.scss dist/emerson-styles.css
