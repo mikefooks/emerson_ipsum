@@ -45,4 +45,8 @@ class EmersonResource (Resource):
                       for _ in range(paras) ]
         }
 
+        if headings > 0:
+            output['headings'] = [ heading_gen()
+                                   for _ in range(headings) ]
+
         return output, 200, { "Access-Control-Allow-Origin": "*" }

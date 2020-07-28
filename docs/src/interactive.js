@@ -24,7 +24,7 @@
 
     function refreshGenText () {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:8000" + queryParams());
+        xhr.open("GET", "https://mikefooks.com/emerson/api" + queryParams());
         xhr.onload = function () {
             if (xhr.status == 200) {
                 sampleTextEl.innerHTML = "";

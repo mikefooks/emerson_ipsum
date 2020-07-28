@@ -60,3 +60,16 @@ section {
   margin-top: 16px;
   padding: 0 16px;
 }
+
+tr:nth-of-type(2n) {
+  background-color: #ffffff;
+}
+
+td {
+  padding: 4px;
+}
+
+footer {
+  margin-top: 8px;
+  text-align: center;
+}
