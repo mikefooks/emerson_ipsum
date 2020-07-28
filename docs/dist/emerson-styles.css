@@ -42,3 +42,21 @@ img#waldo {
 section {
   padding: 0 32px;
 }
+
+#controls {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+#generate {
+  font-family: "Average", serif;
+  font-size: 16px;
+}
+
+#generated-text {
+  background-color: #f3f3f3;
+  border: 1px solid #222;
+  margin-top: 16px;
+  padding: 0 16px;
+}

@@ -2,13 +2,24 @@
     let sampleTextEl = document.querySelector("#generated-text");
     let generateButton = document.querySelector("#generate");
 
-    let paras = document.querySelector("#para-count");
-    let sentences = document.querySelector("#sentence-count");
+    let paraSlider = document.querySelector("#para-count");
+    let sentSlider = document.querySelector("#sentence-count");
+
+    let paraCounter = document.querySelector("#para-value");
+    let sentCounter = document.querySelector("#sentence-value");
 
     function queryParams () {
-        let p = paras.value;
-        let s = sentences.value;
+        let p = paraSlider.value;
+        let s = sentSlider.value;
         return "?paras=" + p + "&sentences=" + s;
+    }
+
+    function refreshValueCounters () {
+        let p = paraSlider.value;
+        let s = sentSlider.value;
+
+        paraCounter.innerText = p;
+        sentCounter.innerText = s;
     }
 
     function refreshGenText () {
@@ -35,6 +46,9 @@
     }
 
     generateButton.addEventListener("click", refreshGenText);
+    paraSlider.addEventListener("change", refreshValueCounters);
+    sentSlider.addEventListener("change", refreshValueCounters);
     window.addEventListener("load", refreshGenText);
+    window.addEventListener("load", refreshValueCounters);
 
 }).call(this, window, document);
