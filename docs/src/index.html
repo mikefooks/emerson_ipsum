@@ -5,13 +5,13 @@
         <meta name="viewport='width=device-width,initial-scale=1'">
         <title>Emerson Ipsum</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Average&display=swap" />
-        <link rel="stylesheet" href="emerson/emerson-styles.css" />
+        <link rel="stylesheet" href="emerson-styles.css" />
     </head>
     <body>
         <div class="container">
             <header>
                 <h1>Emerson Ipsum</h1>
-                <img id="waldo" src="emerson/waldoheader.jpg" />
+                <img id="waldo" src="waldoheader.jpg" />
             </header>
             <section class="intro">
                 <h2>What is it?</h2>
@@ -19,6 +19,13 @@
                 <p>Due to the nature of RNNs (and to some extent Emerson's prose), the output text is often sublime, sometimes neologistic, and strains any traditional definition of comprehensibility.</p>
             </section>
             <section class="interactive">
+                <h2>Play around</h2>
+                <label for="sentence-count">Sentences:</label>
+                <input type="range" id="sentence-count" min="1" max="10" value="5">
+                <label for="para-count">Paragraphs:</label>
+                <input type="range" id="para-count" min="1" max="4" value="1">
+                <button id="generate">Generate!</button>
+                <div id="generated-text"></div>
             </section>
             <section class="api-doc">
                 <h2>API</h2>
@@ -78,5 +85,6 @@
             <footer>
             </footer>
         </div>
+        <script type="text/javascript" src="interactive.js"></script>
     </body>
 </html>

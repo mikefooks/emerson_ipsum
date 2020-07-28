@@ -2,9 +2,8 @@ import sys
 import os
 import json
 
-from flask import Flask, request, make_response
+from flask import Flask
 from flask_restful import Resource, Api, reqparse
-from flask_restful.utils import unpack
 
 from loremerson.generators import StringGen
 
@@ -32,28 +31,6 @@ parser.add_argument('headings',
 
 api = Api(application)
 
-# Define different mimetype representations
-@api.representation('application/json')
-def json_response (data, code, headers):
-    resp = make_response(json.dumps(data), code)
-    resp.headers.extend(headers or {})
-    return resp
-
-@api.representation('text/html')
-def html_response (data, code, headers):
-    data = [ '<p>' + p + '</p>' for p in data ]
-    data = '\n'.join(data['text'])
-    resp = make_response(data, code)
-    resp.headers.extend(headers or {})
-    return resp
-
-@api.representation('text/plain')
-def text_response (data, code, headers):
-    data = '\n'.join(data['text'])
-    resp = make_response(data, code)
-    resp.headers.extend(headers or {})
-    return resp
-
 # Define the resource.
 @api.resource("/")
 class EmersonResource (Resource):
@@ -63,7 +40,9 @@ class EmersonResource (Resource):
         sentences = args['sentences'] or 4
         headings = args['headings'] or 0
 
-        return {
-            'text': [ sentence_gen(count=sentences)
+        output = {
+            'data': [ sentence_gen(count=sentences)
                       for _ in range(paras) ]
         }
+
+        return output, 200, { "Access-Control-Allow-Origin": "*" }
