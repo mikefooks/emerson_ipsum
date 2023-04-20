@@ -5,7 +5,7 @@ import json
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
-from loremerson.generators import StringGen
+from generators import StringGen
 
 
 DATA_PATH = os.environ["EMERSON_DATA_PATH"]
